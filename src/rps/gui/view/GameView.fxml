@@ -76,7 +76,10 @@
                         <DropShadow />
                      </effect>
                      <graphic>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Paper.png" />
+                           </image></ImageView>
                      </graphic>
                   </JFXButton>
                   <JFXButton fx:id="scissor" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" layoutX="226.0" layoutY="10.0" onAction="#playsScissor" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Scissor" textOverrun="CLIP">
