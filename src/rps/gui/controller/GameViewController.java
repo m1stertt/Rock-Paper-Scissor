@@ -42,17 +42,8 @@ public class GameViewController implements Initializable {
         // TODO
     }
 
-    public void playsRock() {
-
-    }
-
-    public void playsPaper() {
-    }
-
-    public void playsScissor() {
-    }
-
-    public void onAction(ActionEvent ae) {
+    @FXML
+    private void setPlayedHandAsImag(ActionEvent ae) {
         Image image;
         Button b = (Button) ae.getSource();
         if (b.equals(rock)) {
@@ -61,7 +52,7 @@ public class GameViewController implements Initializable {
         } else if (b.equals(paper)) {
             image = new Image(getClass().getResourceAsStream("../view/Images/Paper.png"));
             playerImageView.setImage(image);
-        } else if (b.equals(paper)) {
+        } else if (b.equals(scissor)) {
             image = new Image(getClass().getResourceAsStream("../view/Images/Scissors.png"));
             playerImageView.setImage(image);
         } else {

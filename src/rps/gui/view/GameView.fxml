@@ -60,7 +60,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="207.0" prefWidth="800.0">
                <children>
-                  <JFXButton fx:id="rock" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" onAction="#playsRock" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Rock" textOverrun="CLIP">
+                  <JFXButton fx:id="rock" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" onAction="#setPlayedHandAsImag" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Rock" textOverrun="CLIP">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -71,7 +71,7 @@
                            </image></ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="paper" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" layoutX="10.0" layoutY="10.0" onAction="#playsPaper" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Paper" textOverrun="CLIP">
+                  <JFXButton fx:id="paper" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" layoutX="10.0" layoutY="10.0" onAction="#setPlayedHandAsImag" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Paper" textOverrun="CLIP">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -82,7 +82,7 @@
                            </image></ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="scissor" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" layoutX="226.0" layoutY="10.0" onAction="#playsScissor" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Scissor" textOverrun="CLIP">
+                  <JFXButton fx:id="scissor" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" layoutX="226.0" layoutY="10.0" onAction="#setPlayedHandAsImag" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Scissor" textOverrun="CLIP">
                      <effect>
                         <DropShadow />
                      </effect>
