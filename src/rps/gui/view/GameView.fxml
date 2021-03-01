@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -18,7 +19,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="142.0" prefWidth="200.0">
                      <children>
-                        <Label text="Player Chooses:">
+                        <Label text="You Choose:">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -64,7 +65,10 @@
                         <DropShadow />
                      </effect>
                      <graphic>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Rock.png" />
+                           </image></ImageView>
                      </graphic>
                   </JFXButton>
                   <JFXButton fx:id="paper" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" layoutX="10.0" layoutY="10.0" onAction="#playsPaper" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Paper" textOverrun="CLIP">

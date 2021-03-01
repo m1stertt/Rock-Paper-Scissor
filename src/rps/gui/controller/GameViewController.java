@@ -2,7 +2,6 @@ package rps.gui.controller;
 
 // Java imports
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -38,12 +37,12 @@ public class GameViewController implements Initializable {
         // TODO
     }
 
-    public void playsRock(ActionEvent actionEvent) {
+    public void playsRock() {
     }
 
-    public void playsPaper(ActionEvent actionEvent) {
+    public void playsPaper() {
     }
 
-    public void playsScissor(ActionEvent actionEvent) {
+    public void playsScissor() {
     }
 }
