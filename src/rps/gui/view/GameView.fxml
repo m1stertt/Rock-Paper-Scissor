@@ -67,7 +67,7 @@
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Images/Rock.png" />
+                              <Image url="@Images/Rock.png" />
                            </image></ImageView>
                      </graphic>
                   </JFXButton>
@@ -78,7 +78,7 @@
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Images/Paper.png" />
+                              <Image url="@Images/Paper.png" />
                            </image></ImageView>
                      </graphic>
                   </JFXButton>
@@ -87,7 +87,10 @@
                         <DropShadow />
                      </effect>
                      <graphic>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/Scissors.png" />
+                           </image></ImageView>
                      </graphic>
                   </JFXButton>
                </children>
