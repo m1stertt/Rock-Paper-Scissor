@@ -1,12 +1,10 @@
 package rps.bll.player;
 
 //Project imports
-import rps.bll.game.IGameState;
+
 import rps.bll.game.Move;
-import rps.bll.game.Result;
 
 //Java imports
-import java.util.ArrayList;
 
 /**
  * Example implementation of a player.
@@ -15,6 +13,10 @@ import java.util.ArrayList;
  */
 public class Player implements IPlayer {
 
+    private Move previousHumanMove;
+
+    private MarkovChain markovChain;
+
     private String name;
     private PlayerType type;
 
@@ -22,6 +24,7 @@ public class Player implements IPlayer {
      * @param name
      */
     public Player(String name, PlayerType type) {
+        this.markovChain = new MarkovChain();
         this.name = name;
         this.type = type;
     }
@@ -41,15 +44,18 @@ public class Player implements IPlayer {
 
     /**
      * Decides the next move for the bot...
-     * @param state Contains the current game state including historic moves/results
+     *
+     * @param humanMove Contains the current game state including historic moves/results
      * @return Next move
      */
     @Override
-    public Move doMove(IGameState state) {
-        //Historic data to analyze and decide next move...
-        ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
+    public Move doMove(Move humanMove) {
+        Move nextMove = markovChain.nextMove(previousHumanMove);
+        if (previousHumanMove != null) {
+            markovChain.updateMarkovChain(previousHumanMove, humanMove);
+        }
+        previousHumanMove = humanMove;
 
-        //Implement better AI here...
-        return Move.Rock;
+        return nextMove;
     }
 }
