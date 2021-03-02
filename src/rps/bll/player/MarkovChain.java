@@ -11,9 +11,9 @@ public class MarkovChain {
 
     private HashMap<Move, Move> losesToMap = new HashMap<>();
 
-
+ // This is used to predict
     // we use a Markov Chain for the AI of our computer
-    private int[][] markovChain; // used just for the prev to current throws prediction
+    private int[][] markovChain; // This is used to predict
     private int nbThrows = 0;
     private Move last = null;
 
@@ -44,7 +44,7 @@ public class MarkovChain {
             return Move.values()[RANDOM.nextInt(Move.values().length)];
         }
 
-        // We try to predict next Move by reading the date in our MarkovChain
+        // We try to predict next Move by reading the data in our MarkovChain
         // for the prev entry in the array.
         int nextIndex = 0;
 
@@ -59,7 +59,7 @@ public class MarkovChain {
         // The Move that is probably played by the user is in the nextIndex.
         Move predictedNext = Move.values()[nextIndex];
 
-        // we choose the next predicted move we except will lose to the next user move.
+        // we choose the next predicted move we expect will lose to the next user move.
         return losesToMap.get(predictedNext);
     }
 
