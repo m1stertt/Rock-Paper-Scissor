@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
+<AnchorPane id="Background" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/MainCSS.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -19,7 +18,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="142.0" prefWidth="200.0">
                      <children>
-                        <Label text="You Choose:">
+                        <Label text="You Choose:" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -29,12 +28,12 @@
                   </VBox>
                   <VBox alignment="CENTER" layoutX="338.0" layoutY="10.0" prefHeight="233.0" prefWidth="300.0">
                      <children>
-                        <Label text="The Winner Is:">
+                        <Label text="The Winner Is:" textFill="WHITE">
                            <font>
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Label fx:id="resultInput" layoutX="106.0" layoutY="60.0" text="delet text later">
+                        <Label fx:id="resultInput" layoutX="106.0" layoutY="60.0" text="delet text later" textFill="WHITE">
                            <font>
                               <Font size="34.0" />
                            </font>
@@ -43,7 +42,7 @@
                   </VBox>
                   <VBox alignment="CENTER" layoutX="388.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Label contentDisplay="CENTER" text="AI Chooses:">
+                        <Label contentDisplay="CENTER" text="AI Chooses:" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -55,42 +54,39 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="74.0" prefWidth="800.0">
                <children>
-                  <Label text="so i think we can display stats here like wins, loses, and draws in this instance of the game" />
+                  <Label fx:id="scoreInput" text="so i think we can display stats here like wins, loses, and draws in this instance of the game" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="207.0" prefWidth="800.0">
                <children>
-                  <JFXButton fx:id="rock" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" onAction="#setPlayedHandAsImag" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Rock" textOverrun="CLIP">
-                     <effect>
-                        <DropShadow />
-                     </effect>
+                  <JFXButton fx:id="rock" buttonType="RAISED" contentDisplay="CENTER" onAction="#setPlayedHandAsImage" prefHeight="200.0" prefWidth="200.0" ripplerFill="#e063ff" text=" ">
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Images/Rock.png" />
-                           </image></ImageView>
+                           </image>
+                        </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="paper" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" layoutX="10.0" layoutY="10.0" onAction="#setPlayedHandAsImag" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Paper" textOverrun="CLIP">
-                     <effect>
-                        <DropShadow />
-                     </effect>
+                  <JFXButton fx:id="paper" buttonType="RAISED" contentDisplay="CENTER" layoutX="294.0" layoutY="10.0" onAction="#setPlayedHandAsImage" prefHeight="200.0" prefWidth="200.0" ripplerFill="#e063ff" text=" ">
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Images/Paper.png" />
-                           </image></ImageView>
+                           </image>
+                        </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="scissor" buttonType="RAISED" contentDisplay="CENTER" ellipsisString="" layoutX="226.0" layoutY="10.0" onAction="#setPlayedHandAsImag" prefHeight="200.0" prefWidth="200.0" ripplerFill="#00fffb" text="Scissor" textOverrun="CLIP">
-                     <effect>
-                        <DropShadow />
-                     </effect>
+                  <JFXButton fx:id="scissors" buttonType="RAISED" contentDisplay="CENTER" layoutX="186.0" layoutY="10.0" onAction="#setPlayedHandAsImage" prefHeight="200.0" prefWidth="200.0" ripplerFill="#e063ff" text=" ">
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Images/Scissors.png" />
-                           </image></ImageView>
+                           </image>
+                        </ImageView>
                      </graphic>
                   </JFXButton>
                </children>
