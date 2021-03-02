@@ -61,17 +61,17 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="207.0" prefWidth="800.0">
                <children>
-                  <JFXButton>
+                  <JFXButton fx:id="rock" onAction="#setPlayedHandAsImag">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton>
+                  <JFXButton fx:id="paper" onAction="#setPlayedHandAsImag">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton>
+                  <JFXButton fx:id="scissors" onAction="#setPlayedHandAsImag">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
