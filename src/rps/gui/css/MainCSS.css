@@ -4,6 +4,11 @@
     -fx-background-color: #1d0057;
     -fx-border-color: #26006f;
     -fx-border-width: 8;
-    -fx-font-family: 'DotGothic16', sans-serif;
+
+}
+
+.label {
+    -fx-font-family: 'DotGothic16';
+    -fx-text-fill: white;
 }
 

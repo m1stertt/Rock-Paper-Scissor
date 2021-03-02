@@ -24,15 +24,16 @@ public class GameViewController implements Initializable {
     @FXML
     private Label resultInput;
     @FXML
+    private Label scoreInput;
+    @FXML
     private ImageView computerImageView;
     @FXML
     private JFXButton rock;
     @FXML
     private JFXButton paper;
     @FXML
-    private JFXButton scissor;
+    private JFXButton scissors;
 
-    //boolean rock false;
 
     /**
      * Initializes the controller class.
@@ -43,7 +44,7 @@ public class GameViewController implements Initializable {
     }
 
     @FXML
-    private void setPlayedHandAsImag(ActionEvent ae) {
+    private void setPlayedHandAsImage(ActionEvent ae) {
         Image image;
         Button b = (Button) ae.getSource();
         if (b.equals(rock)) {
@@ -52,7 +53,7 @@ public class GameViewController implements Initializable {
         } else if (b.equals(paper)) {
             image = new Image(getClass().getResourceAsStream("../view/Images/paper.png"));
             playerImageView.setImage(image);
-        } else if (b.equals(scissor)) {
+        } else if (b.equals(scissors)) {
             image = new Image(getClass().getResourceAsStream("../view/Images/scissors.png"));
             playerImageView.setImage(image);
         } else {
@@ -61,24 +62,4 @@ public class GameViewController implements Initializable {
     }
 }
 
-/*
-    public void setPlayedHandAsImage(){
-        Image image;
-        if(rock.isPressed()){
-            image = new Image(getClass().getResourceAsStream("../view/Images/Rock.png"));
-            playerImageView.setImage(image);
-        }
-        else if(paper.isPressed()){
-            image = new Image(getClass().getResourceAsStream("../view/Images/Paper.png"));;
-            playerImageView.setImage(image);
-        }
-        else if(scissor.isPressed()){
-            image = new Image(getClass().getResourceAsStream("../view/Images/Scissors.png"));;
-            playerImageView.setImage(image);
-        }
-        else{
-            return;
-        }
-    }
-*/
 
