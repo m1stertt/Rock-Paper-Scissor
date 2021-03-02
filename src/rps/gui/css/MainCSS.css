@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+#Background {
+    -fx-background-image: url(../images/Background.png);
+    -fx-font-family: 'DotGothic16', sans-serif;
+}
+
+
