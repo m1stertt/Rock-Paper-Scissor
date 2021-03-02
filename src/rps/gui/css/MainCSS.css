@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
 #Background {
-    -fx-background-image: url(../images/Background.png);
-    -fx-font-family: 'DotGothic16', sans-serif;
+    -fx-background-color: #1d0057;
+    -fx-border-color: #26006f;
+    -fx-border-width: 8;
 }
 
+.label {
+    -fx-font-family: 'DotGothic16', sans-serif;
+}
 

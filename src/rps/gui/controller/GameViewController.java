@@ -47,13 +47,13 @@ public class GameViewController implements Initializable {
         Image image;
         Button b = (Button) ae.getSource();
         if (b.equals(rock)) {
-            image = new Image(getClass().getResourceAsStream("../view/Images/Rock.png"));
+            image = new Image(getClass().getResourceAsStream("../view/Images/rock.png"));
             playerImageView.setImage(image);
         } else if (b.equals(paper)) {
-            image = new Image(getClass().getResourceAsStream("../view/Images/Paper.png"));
+            image = new Image(getClass().getResourceAsStream("../view/Images/paper.png"));
             playerImageView.setImage(image);
         } else if (b.equals(scissor)) {
-            image = new Image(getClass().getResourceAsStream("../view/Images/Scissors.png"));
+            image = new Image(getClass().getResourceAsStream("../view/Images/scissors.png"));
             playerImageView.setImage(image);
         } else {
             return;
