@@ -59,12 +59,11 @@ public class GameViewController implements Initializable {
         String botName = getRandomBotName();
         IPlayer bot = new Player(botName, PlayerType.AI);
         aiName.setText(botName + " Chooses:");
-        gameIntro.setText("Your opponent will be "+botName+". Have fun and try to beat "+botName+".");
+        gameIntro.setText("Your opponent will be "+botName+".Good Luck! Have fun! And try to beat "+botName+".");
 
         ge = new GameManager(human, bot);
 
-        //System.out.println("Your opponent is " + bot.getPlayerName());
-        //System.out.println("Starting game.... good luck both!");
+        scoreInput.setText("Score: Wins: "+"| Draws: "+"| Loses: ");
     }
 
     @FXML
@@ -132,6 +131,9 @@ public class GameViewController implements Initializable {
 
         return botNames[randomNumber];
     }
+
+
+
 }
 
 

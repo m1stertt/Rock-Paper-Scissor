@@ -70,7 +70,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="74.0" prefWidth="800.0">
                <children>
-                  <Label fx:id="scoreInput" text="so i think we can display stats here like wins, loses, and draws in this instance of the game" textFill="WHITE">
+                  <Label fx:id="scoreInput" text="Score: Wins:      | Draws:     | Loses:     " textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
