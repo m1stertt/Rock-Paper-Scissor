@@ -9,9 +9,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import rps.bll.game.GameManager;
+import rps.bll.game.Move;
+import rps.bll.game.Result;
+import rps.bll.player.IPlayer;
+import rps.bll.player.Player;
+import rps.bll.player.PlayerType;
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  *
@@ -35,32 +41,64 @@ public class GameViewController implements Initializable {
     private JFXButton scissors;
 
     Image image;
-
+    GameManager ge;
+    String playerName = "Test";
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
+        IPlayer human = new Player(playerName, PlayerType.Human);
+        IPlayer bot = new Player(getRandomBotName(), PlayerType.AI);
+
+        //System.out.println("Your opponent is " + bot.getPlayerName());
+        //System.out.println("Starting game.... good luck both!");
+
+        ge = new GameManager(human, bot);
     }
 
     @FXML
-    private String setPlayedHandAsImage(ActionEvent ae) {
-        String input;
+    private void setPlayedHandAsImage(ActionEvent ae) {
         Button b = (Button) ae.getSource();
         if (b.equals(rock)) {
             setRock();
-            input = "Rock";
+            ge.playRound(Move.Rock);
         } else if (b.equals(paper)) {
             setPaper();
-            input = "Paper";
+            ge.playRound(Move.Paper);
         } else if (b.equals(scissors)) {
             setScissors();
-            input = "Scissors";
-        } else {
-            return null;
+            ge.playRound(Move.Scissor);
         }
-        return input;
+        ArrayList<Result> res= (ArrayList<Result>) ge.getGameState().getHistoricResults();
+        Result last=res.get(res.size()-1);
+        System.out.println("Round #" + last.getRoundNumber() + ":" +
+                                last.getWinnerPlayer().getPlayerName() +
+                                " (" + last.getWinnerMove() + ") " + last.getLoserPlayer().getPlayerName() +
+                                " (" + last.getLoserMove() + ")!");
+        resultInput.setText(last.getWinnerPlayer().getPlayerName());
+        if(last.getWinnerPlayer().getPlayerName()==playerName){
+            setAIPlay(last.getLoserMove());
+        }else{
+            setAIPlay(last.getWinnerMove());
+        }
+    }
+
+    private void setAIPlay(Move move){
+        switch(move){
+            case Rock:
+                image = new Image(getClass().getResourceAsStream("../view/Images/rock.png"));
+                break;
+            case Paper:
+                image = new Image(getClass().getResourceAsStream("../view/Images/paper.png"));
+                break;
+            case Scissor:
+                image = new Image(getClass().getResourceAsStream("../view/Images/scissors.png"));
+                break;
+
+        }
+        computerImageView.setImage(image);
     }
 
     private void setRock(){
@@ -74,6 +112,25 @@ public class GameViewController implements Initializable {
     private void setScissors(){
         image = new Image(getClass().getResourceAsStream("../view/Images/scissors.png"));
         playerImageView.setImage(image);
+    }
+
+    /**
+     * Famous robots...
+     * @return
+     */
+    private String getRandomBotName() {
+        String[] botNames = new String[] {
+                "R2D2",
+                "Mr. Data",
+                "3PO",
+                "Bender",
+                "Marvin the Paranoid Android",
+                "Bishop",
+                "Robot B-9",
+                "HAL"
+        };
+        int randomNumber = new Random().nextInt(botNames.length - 1);
+        return botNames[randomNumber];
     }
 }
 
