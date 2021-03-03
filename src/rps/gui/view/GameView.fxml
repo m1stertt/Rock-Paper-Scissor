@@ -62,7 +62,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="207.0" prefWidth="800.0">
                <children>
-                  <JFXButton fx:id="rock" buttonType="RAISED" contentDisplay="CENTER" onAction="#setPlayedHandAsImage" prefHeight="200.0" prefWidth="200.0" ripplerFill="#e063ff" text=" ">
+                  <JFXButton fx:id="rock" buttonType="RAISED" contentDisplay="CENTER" onAction="#setRock" prefHeight="200.0" prefWidth="200.0" ripplerFill="#e063ff" text=" ">
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -71,7 +71,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="paper" buttonType="RAISED" contentDisplay="CENTER" layoutX="294.0" layoutY="10.0" onAction="#setPlayedHandAsImage" prefHeight="200.0" prefWidth="200.0" ripplerFill="#e063ff" text=" ">
+                  <JFXButton fx:id="paper" buttonType="RAISED" contentDisplay="CENTER" layoutX="294.0" layoutY="10.0" onAction="#setPaper" prefHeight="200.0" prefWidth="200.0" ripplerFill="#e063ff" text=" ">
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -80,7 +80,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="scissors" buttonType="RAISED" contentDisplay="CENTER" layoutX="186.0" layoutY="10.0" onAction="#setPlayedHandAsImage" prefHeight="200.0" prefWidth="200.0" ripplerFill="#e063ff" text=" ">
+                  <JFXButton fx:id="scissors" buttonType="RAISED" contentDisplay="CENTER" layoutX="186.0" layoutY="10.0" onAction="#setScissors" prefHeight="200.0" prefWidth="200.0" ripplerFill="#e063ff" text=" ">
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
