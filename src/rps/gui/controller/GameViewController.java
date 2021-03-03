@@ -61,16 +61,16 @@ public class GameViewController implements Initializable {
     @FXML
     private void setPlayedHandAsImage(ActionEvent ae) {
         Button b = (Button) ae.getSource();
-        if (b.equals(rock)) {
-            setImageViewPlay(Move.Rock,playerImageView);
-            ge.playRound(Move.Rock);
-        } else if (b.equals(paper)) {
-            setImageViewPlay(Move.Paper,playerImageView);
-            ge.playRound(Move.Paper);
+        Move playerMove=Move.Rock;
+        if (b.equals(paper)) {
+            playerMove=Move.Paper;
         } else if (b.equals(scissors)) {
-            setImageViewPlay(Move.Scissor,playerImageView);
-            ge.playRound(Move.Scissor);
+            playerMove=Move.Scissor;
         }
+        setImageViewPlay(playerMove,playerImageView);
+        ge.playRound(playerMove);
+
+
         ArrayList<Result> res= (ArrayList<Result>) ge.getGameState().getHistoricResults();
         Result last=res.get(res.size()-1);
 
