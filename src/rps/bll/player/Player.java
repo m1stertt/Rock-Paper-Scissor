@@ -45,17 +45,17 @@ public class Player implements IPlayer {
     /**
      * Decides the next move for the bot...
      *
-     * @param humanMove Contains the current game state including historic moves/results
+     * @param humanMove Contains the current move of the game.
      * @return Next move
      */
     @Override
     public Move doMove(Move humanMove) {
-        Move nextMove = markovChain.nextMove(previousHumanMove);
-        if (previousHumanMove != null) {
-            markovChain.updateMarkovChain(previousHumanMove, humanMove);
+        Move nextMove = markovChain.nextMove(previousHumanMove); // We grab the nextMove.
+        if (previousHumanMove != null) { // After the initial move, every move
+            markovChain.updateMarkovChain(previousHumanMove, humanMove); // we will update the markovChain with the previous and current humanMove.
         }
-        previousHumanMove = humanMove;
+        previousHumanMove = humanMove; // We update previousMove to the current move after all above statements have executed.
 
-        return nextMove;
+        return nextMove; // Finally return the nextMove.
     }
 }
