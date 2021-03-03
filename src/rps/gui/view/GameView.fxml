@@ -34,7 +34,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="142.0" prefWidth="200.0">
                      <children>
-                        <Label text="You Choose:" textFill="WHITE">
+                        <Label fx:id="username" text="You Choose:" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>

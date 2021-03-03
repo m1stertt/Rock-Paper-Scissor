@@ -16,6 +16,7 @@ import rps.bll.game.ResultType;
 import rps.bll.player.IPlayer;
 import rps.bll.player.Player;
 import rps.bll.player.PlayerType;
+import rps.gui.JavaFXApp;
 
 import java.net.URL;
 import java.util.*;
@@ -24,7 +25,7 @@ import java.util.*;
  *
  * @author smsj
  */
-public class GameViewController implements Initializable {
+public class GameViewController implements Initializable{
 
     @FXML
     private ImageView playerImageView;
@@ -34,6 +35,8 @@ public class GameViewController implements Initializable {
     private Label scoreInput;
     @FXML
     private Label aiName;
+    @FXML
+    private Label username;
     @FXML
     private Label gameIntro;
     @FXML
@@ -47,7 +50,7 @@ public class GameViewController implements Initializable {
 
     Image image;
     GameManager ge;
-    String playerName = "You";
+    String playerName = JavaFXApp.getUsername();
 
     Integer playerWins=0;
     Integer playerLosses=0;
@@ -60,6 +63,7 @@ public class GameViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         IPlayer human = new Player(playerName, PlayerType.Human);
+        username.setText(playerName + " Chooses:");
 
         String botName = getRandomBotName();
         IPlayer bot = new Player(botName, PlayerType.AI);
