@@ -62,30 +62,27 @@ public class GameViewController implements Initializable {
     private void setPlayedHandAsImage(ActionEvent ae) {
         Button b = (Button) ae.getSource();
         if (b.equals(rock)) {
-            setRock();
+            setImageViewPlay(Move.Rock,playerImageView);
             ge.playRound(Move.Rock);
         } else if (b.equals(paper)) {
-            setPaper();
+            setImageViewPlay(Move.Paper,playerImageView);
             ge.playRound(Move.Paper);
         } else if (b.equals(scissors)) {
-            setScissors();
+            setImageViewPlay(Move.Scissor,playerImageView);
             ge.playRound(Move.Scissor);
         }
         ArrayList<Result> res= (ArrayList<Result>) ge.getGameState().getHistoricResults();
         Result last=res.get(res.size()-1);
-        System.out.println("Round #" + last.getRoundNumber() + ":" +
-                                last.getWinnerPlayer().getPlayerName() +
-                                " (" + last.getWinnerMove() + ") " + last.getLoserPlayer().getPlayerName() +
-                                " (" + last.getLoserMove() + ")!");
+
         resultInput.setText(last.getWinnerPlayer().getPlayerName());
         if(last.getWinnerPlayer().getPlayerName()==playerName){
-            setAIPlay(last.getLoserMove());
+            setImageViewPlay(last.getLoserMove(),computerImageView);
         }else{
-            setAIPlay(last.getWinnerMove());
+            setImageViewPlay(last.getWinnerMove(),computerImageView);
         }
     }
 
-    private void setAIPlay(Move move){
+    private void setImageViewPlay(Move move, ImageView view){
         switch(move){
             case Rock:
                 image = new Image(getClass().getResourceAsStream("../view/Images/rock.png"));
@@ -98,20 +95,7 @@ public class GameViewController implements Initializable {
                 break;
 
         }
-        computerImageView.setImage(image);
-    }
-
-    private void setRock(){
-        image = new Image(getClass().getResourceAsStream("../view/Images/rock.png"));
-        playerImageView.setImage(image);
-    }
-    private void setPaper(){
-        image = new Image(getClass().getResourceAsStream("../view/Images/paper.png"));
-        playerImageView.setImage(image);
-    }
-    private void setScissors(){
-        image = new Image(getClass().getResourceAsStream("../view/Images/scissors.png"));
-        playerImageView.setImage(image);
+        view.setImage(image);
     }
 
     /**
