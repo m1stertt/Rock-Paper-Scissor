@@ -32,6 +32,10 @@ public class GameViewController implements Initializable {
     @FXML
     private Label scoreInput;
     @FXML
+    private Label aiName;
+    @FXML
+    private Label gameIntro;
+    @FXML
     private ImageView computerImageView;
     @FXML
     private JFXButton rock;
@@ -42,7 +46,7 @@ public class GameViewController implements Initializable {
 
     Image image;
     GameManager ge;
-    String playerName = "Test";
+    String playerName = "You";
     /**
      * Initializes the controller class.
      */
@@ -50,12 +54,16 @@ public class GameViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         IPlayer human = new Player(playerName, PlayerType.Human);
-        IPlayer bot = new Player(getRandomBotName(), PlayerType.AI);
+
+        String botName = getRandomBotName();
+        IPlayer bot = new Player(botName, PlayerType.AI);
+        aiName.setText(botName + " Chooses:");
+        gameIntro.setText("Your opponent will be "+botName+". Have fun and try to beat "+botName+".");
+
+        ge = new GameManager(human, bot);
 
         //System.out.println("Your opponent is " + bot.getPlayerName());
         //System.out.println("Starting game.... good luck both!");
-
-        ge = new GameManager(human, bot);
     }
 
     @FXML
@@ -114,6 +122,7 @@ public class GameViewController implements Initializable {
                 "HAL"
         };
         int randomNumber = new Random().nextInt(botNames.length - 1);
+
         return botNames[randomNumber];
     }
 }
