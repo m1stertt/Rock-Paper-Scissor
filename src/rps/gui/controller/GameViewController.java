@@ -52,21 +52,10 @@ public class GameViewController implements Initializable {
         IPlayer human = new Player(playerName, PlayerType.Human);
         IPlayer bot = new Player(getRandomBotName(), PlayerType.AI);
 
-        System.out.println("Your opponent is " + bot.getPlayerName());
-        System.out.println("Starting game.... good luck both!");
+        //System.out.println("Your opponent is " + bot.getPlayerName());
+        //System.out.println("Starting game.... good luck both!");
 
         ge = new GameManager(human, bot);
-
-        //while (true) {
-            //String playerMove = getPlayerMove();
-
-            //ge.getGameState().getHistoricResults().forEach((result) -> {
-                //System.out.println(getResultAsString(result));
-            //});
-        //}
-
-        //if (ge.getGameState().getHistoricResults().size() > 0)
-          //  System.out.println("Game stats: ....ehmmmm..not implemented yet...please FIXME");
     }
 
     @FXML
