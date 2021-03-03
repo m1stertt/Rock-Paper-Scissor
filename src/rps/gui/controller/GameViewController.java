@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import rps.bll.game.GameManager;
 import rps.bll.game.Move;
 import rps.bll.game.Result;
+import rps.bll.game.ResultType;
 import rps.bll.player.IPlayer;
 import rps.bll.player.Player;
 import rps.bll.player.PlayerType;
@@ -82,7 +83,13 @@ public class GameViewController implements Initializable {
         ArrayList<Result> res= (ArrayList<Result>) ge.getGameState().getHistoricResults();
         Result last=res.get(res.size()-1);
 
-        resultInput.setText(last.getWinnerPlayer().getPlayerName());
+        if(last.getType()== ResultType.Win){
+            resultInput.setText(last.getWinnerPlayer().getPlayerName());
+        }else{
+            resultInput.setText("ITS A TIE");
+        }
+
+
         if(last.getWinnerPlayer().getPlayerName()==playerName){
             setImageViewPlay(last.getLoserMove(),computerImageView);
         }else{
