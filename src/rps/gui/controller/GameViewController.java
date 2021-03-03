@@ -34,6 +34,7 @@ public class GameViewController implements Initializable {
     @FXML
     private JFXButton scissors;
 
+    Image image;
 
     /**
      * Initializes the controller class.
@@ -44,21 +45,35 @@ public class GameViewController implements Initializable {
     }
 
     @FXML
-    private void setPlayedHandAsImage(ActionEvent ae) {
-        Image image;
+    private String setPlayedHandAsImage(ActionEvent ae) {
+        String input;
         Button b = (Button) ae.getSource();
         if (b.equals(rock)) {
-            image = new Image(getClass().getResourceAsStream("../view/Images/rock.png"));
-            playerImageView.setImage(image);
+            setRock();
+            input = "Rock";
         } else if (b.equals(paper)) {
-            image = new Image(getClass().getResourceAsStream("../view/Images/paper.png"));
-            playerImageView.setImage(image);
+            setPaper();
+            input = "Paper";
         } else if (b.equals(scissors)) {
-            image = new Image(getClass().getResourceAsStream("../view/Images/scissors.png"));
-            playerImageView.setImage(image);
+            setScissors();
+            input = "Scissors";
         } else {
-            return;
+            return null;
         }
+        return input;
+    }
+
+    private void setRock(){
+        image = new Image(getClass().getResourceAsStream("../view/Images/rock.png"));
+        playerImageView.setImage(image);
+    }
+    private void setPaper(){
+        image = new Image(getClass().getResourceAsStream("../view/Images/paper.png"));
+        playerImageView.setImage(image);
+    }
+    private void setScissors(){
+        image = new Image(getClass().getResourceAsStream("../view/Images/scissors.png"));
+        playerImageView.setImage(image);
     }
 }
 
