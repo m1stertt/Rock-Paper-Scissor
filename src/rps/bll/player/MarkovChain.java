@@ -14,9 +14,8 @@ public class MarkovChain {
 
     // This is used to predict
     // we use a Markov Chain for the AI of our computer
-    private int[][] markovChain; // Stores the position numbers from
+    private int[][] markovChain; // This is our matrix.
     private int nbThrows = 0;
-    private Move last = null;
 
 
     public MarkovChain() {
@@ -29,11 +28,9 @@ public class MarkovChain {
         // Initialize the two-dimensional array with 0 values to make sure the AI is ready to learn.
         // The two-dimensional array has 3 rows and 3 columns.
         markovChain = new int[length][length];
-        System.out.println("--------");
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
                 markovChain[i][j] = 0;
-                System.out.println(Arrays.toString(markovChain[i]));
             }
         }
     }
@@ -64,7 +61,6 @@ public class MarkovChain {
 
         // The Move that is probably played by the user is in the nextIndex.
         Move predictedNext = Move.values()[nextIndex];
-        nbThrows++;
         // we choose the next predicted move we expect will lose to the next user move.
         return losesToMap.get(predictedNext);
     }
