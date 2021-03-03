@@ -44,23 +44,22 @@ public class GameViewController implements Initializable {
         // TODO
     }
 
+    String input;
     @FXML
-    private String setPlayedHandAsImage(ActionEvent ae) {
-        String input;
-        Button b = (Button) ae.getSource();
-        if (b.equals(rock)) {
-            setRock();
-            input = "Rock";
-        } else if (b.equals(paper)) {
-            setPaper();
-            input = "Paper";
-        } else if (b.equals(scissors)) {
-            setScissors();
-            input = "Scissors";
-        } else {
-            return null;
-        }
-        return input;
+    private void setRock(ActionEvent ae) {
+        setRock();
+        input = "Rock";
+    }
+    @FXML
+    private void setPaper(ActionEvent ae) {
+        setPaper();
+        input = "Paper";
+    }
+    @FXML
+    private void setScissors(ActionEvent ae) {
+        setScissors();
+        input = "Scissors";
+
     }
 
     private void setRock(){
@@ -78,3 +77,21 @@ public class GameViewController implements Initializable {
 }
 
 
+    /*FXML
+    private String setPlayedHandAsImage(ActionEvent ae) {
+        String input;
+        Button b = (Button) ae.getSource();
+        if (b.equals(rock)) {
+            setRock();
+            input = "Rock";
+        } else if (b.equals(paper)) {
+            setPaper();
+            input = "Paper";
+        } else if (b.equals(scissors)) {
+            setScissors();
+            input = "Scissors";
+        } else {
+            return null;
+        }
+        return input;
+    }*/
