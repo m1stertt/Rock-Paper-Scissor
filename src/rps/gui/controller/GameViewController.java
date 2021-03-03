@@ -48,6 +48,11 @@ public class GameViewController implements Initializable {
     Image image;
     GameManager ge;
     String playerName = "You";
+
+    Integer playerWins=0;
+    Integer playerLosses=0;
+    Integer playerTies=0;
+
     /**
      * Initializes the controller class.
      */
@@ -63,7 +68,7 @@ public class GameViewController implements Initializable {
 
         ge = new GameManager(human, bot);
 
-        scoreInput.setText("Score: Wins: "+"| Draws: "+"| Loses: ");
+
     }
 
     @FXML
@@ -75,26 +80,48 @@ public class GameViewController implements Initializable {
         } else if (b.equals(scissors)) {
             playerMove=Move.Scissor;
         }
-        setImageViewPlay(playerMove,playerImageView);
         ge.playRound(playerMove);
-
 
         ArrayList<Result> res= (ArrayList<Result>) ge.getGameState().getHistoricResults();
         Result last=res.get(res.size()-1);
 
-        if(last.getType()== ResultType.Win){
-            resultInput.setText(last.getWinnerPlayer().getPlayerName());
+        setImageViewPlays(playerMove,last);
+        setWinnerText(last);
+        statisticsUpdate(last);
+
+    }
+
+    private void setImageViewPlays(Move playerMove,Result result){
+        setImageViewPlay(playerMove,playerImageView);
+        if(result.getWinnerPlayer().getPlayerName()==playerName){
+            setImageViewPlay(result.getLoserMove(),computerImageView);
+        }else{
+            setImageViewPlay(result.getWinnerMove(),computerImageView);
+        }
+    }
+
+    private void setWinnerText(Result result){
+        if(result.getType()== ResultType.Win){
+            resultInput.setText(result.getWinnerPlayer().getPlayerName());
         }else{
             resultInput.setText("ITS A TIE");
         }
-
-
-        if(last.getWinnerPlayer().getPlayerName()==playerName){
-            setImageViewPlay(last.getLoserMove(),computerImageView);
-        }else{
-            setImageViewPlay(last.getWinnerMove(),computerImageView);
-        }
     }
+
+    private void statisticsUpdate(Result result){
+
+        if(result.getType()== ResultType.Win){
+            if(result.getWinnerPlayer().getPlayerName()==playerName){
+                playerWins++;
+            }else{
+                playerLosses++;
+            }
+        }else{
+            playerTies++;
+        }
+        scoreInput.setText("Current Round:  " +ge.getGameState().getRoundNumber()+"  | Played Rounds:  " +(ge.getGameState().getRoundNumber()-1)+ "  | Score: Wins:  "+playerWins+"  | Draws:  "+playerTies+"  | Loses:  "+playerLosses);
+    }
+
 
     private void setImageViewPlay(Move move, ImageView view){
         switch(move){
@@ -131,9 +158,6 @@ public class GameViewController implements Initializable {
 
         return botNames[randomNumber];
     }
-
-
-
 }
 
 

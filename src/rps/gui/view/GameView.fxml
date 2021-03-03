@@ -68,9 +68,9 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="800.0">
+            <HBox alignment="CENTER" prefHeight="73.0" prefWidth="750.0">
                <children>
-                  <Label fx:id="scoreInput" text="Score: Wins:      | Draws:     | Loses:     " textFill="WHITE">
+                  <Label fx:id="scoreInput" prefHeight="21.0" prefWidth="759.0" text="Current Round:  1  | Played Rounds:  0  | Score: Wins:  0  | Draws:  0  | Loses:  0  " textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
